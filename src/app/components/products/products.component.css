@@ -1,0 +1,102 @@
+header {
+    width: 100%;
+    text-align: center; 
+    background-color: darkslategray;
+    color: white;
+    padding: 0.5rem;  
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+button {
+    background-color: lightblue;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: salmon;
+}
+
+#add-button {
+    width: 92%;
+    margin-left: 4%;
+    margin-right: 4%; 
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+table {
+    width: 95%;
+    margin-left: 2.5%;
+    margin-right: 2.5%; 
+    border-collapse: collapse;
+}
+
+th {
+    font-size: 1.5rem;
+}
+
+tr {
+    border: solid 0.5rem white; 
+}
+
+td {
+    text-align: center;
+    background-color: lightgray;
+    border: none;
+    font-size: 1.2rem;
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+form {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    background-color: white;
+    border: solid 0.1rem black;
+}
+
+#form-div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+form mat-icon {
+    font-size: 2rem;
+    font-weight: bolder;
+}
+
+label {
+    font-size: 1.75rem;
+}
+
+input {
+    font-size: 1.75rem;
+    border: none;
+    border-bottom: solid 0.1rem black;
+    margin-bottom: 0.5rem;
+}
+
+form button {
+    font-size: 1.75rem;
+    margin-top: 0.5rem;
+}
