@@ -51,6 +51,11 @@ td {
     font-size: 1.2rem;
 }
 
+td input {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
 mat-icon {
     cursor: pointer;
 }
@@ -89,7 +94,7 @@ label {
     font-size: 1.75rem;
 }
 
-input {
+form input {
     font-size: 1.75rem;
     border: none;
     border-bottom: solid 0.1rem black;

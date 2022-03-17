@@ -8,19 +8,29 @@
         <th>Product</th>
         <th>Price</th>
         <th>Quantity</th>
-        <!-- <th>Edit</th> -->
+        <th>Edit</th>
         <th>Delete</th>
     </tr>
     <tr *ngFor="let item of items">
         <td>
             <data value="{{ item.id }}">{{ item.id }}</data>
         </td>
-        <td>{{ item.product }}</td>
-        <td>{{ item.price | currency }}</td>
-        <td>{{ item.quantity }}</td>
-        <!-- <td>
-            <mat-icon>edit</mat-icon>
-        </td> -->
+        <td>
+            <data *ngIf="!isItemEditable(item.id)">{{ item.product }}</data>
+            <input *ngIf="isItemEditable(item.id)" [(ngModel)]="editedItem.product" type="text" id="product" name="product">
+        </td>
+        <td>
+            <data *ngIf="!isItemEditable(item.id)">{{ item.price | currency }}</data>
+            <input *ngIf="isItemEditable(item.id)" [(ngModel)]="editedItem.price" type="number" id="price" name="price">
+        </td>
+        <td>
+            <data *ngIf="!isItemEditable(item.id)">{{ item.quantity }}</data>
+            <input *ngIf="isItemEditable(item.id)" [(ngModel)]="editedItem.quantity" type="number" id="quantity" name="quantity">
+        </td>
+        <td>
+            <mat-icon *ngIf="!isItemEditable(item.id)" (click)="editItemStart(item)">edit</mat-icon>
+            <mat-icon *ngIf="isItemEditable(item.id)" (click)="editItemEnd()">close</mat-icon>
+        </td>
         <td>
             <mat-icon (click)="deleteItem(item.id)">delete</mat-icon>
         </td>

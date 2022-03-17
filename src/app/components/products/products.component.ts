@@ -11,6 +11,12 @@ export class ProductsComponent implements OnInit {
 
   items: Item[] = [];
   showForm: boolean = false;
+  editableRowId: number = -1;
+  editedItem: Item = {
+    product: '',
+    price: 0,
+    quantity: 0
+  };
 
   constructor(private cartApiService: CartApiService) { }
 
@@ -32,6 +38,28 @@ export class ProductsComponent implements OnInit {
       console.log(item);
     });
     this.showForm = false;
+    setTimeout(() => {
+      this.getAllItems();
+    }, 100);
+  }
+
+  isItemEditable(id: number = 0): boolean {
+    return (id === this.editableRowId);
+  }
+
+  editItemStart(item: Item): void {
+    this.editableRowId = item.id!;
+    this.editedItem.product = item.product;
+    this.editedItem.price = item.price;
+    this.editedItem.quantity = item.quantity;
+  }
+
+  editItemEnd(): void {
+    this.cartApiService.editItem(this.editableRowId!, this.editedItem).subscribe((item: Item) => {
+      console.log(`item edited`);
+      console.log(item);
+    });
+    this.editableRowId = -1;
     this.getAllItems();
   }
 
@@ -39,7 +67,9 @@ export class ProductsComponent implements OnInit {
     this.cartApiService.deleteItem(id).subscribe(() => {
       console.log(`item with id: ${id} deleted`);
     });
-    this.getAllItems();
+    setTimeout(() => {
+      this.getAllItems();
+    }, 100);
   }
 
 }
