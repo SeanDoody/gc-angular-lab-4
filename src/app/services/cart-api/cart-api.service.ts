@@ -8,7 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class CartApiService {
 
-  url: string = 'http://localhost:3000';
+  // local
+  // url: string = 'http://localhost:3000';
+
+  // heroku
+  url: string = 'https://gc-express-lab-2.herokuapp.com';
 
   constructor(private http: HttpClient) { }
 

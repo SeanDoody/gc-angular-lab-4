@@ -36,11 +36,9 @@ export class ProductsComponent implements OnInit {
     this.cartApiService.addItem(newItem).subscribe((item: Item) => {
       console.log('new item added');
       console.log(item);
-    });
-    this.showForm = false;
-    setTimeout(() => {
+      this.showForm = false;
       this.getAllItems();
-    }, 100);
+    });
   }
 
   isItemEditable(id: number = 0): boolean {
@@ -58,18 +56,16 @@ export class ProductsComponent implements OnInit {
     this.cartApiService.editItem(this.editableRowId!, this.editedItem).subscribe((item: Item) => {
       console.log(`item edited`);
       console.log(item);
+      this.editableRowId = -1;
+      this.getAllItems();
     });
-    this.editableRowId = -1;
-    this.getAllItems();
   }
 
   deleteItem(id: number = -1): void {
     this.cartApiService.deleteItem(id).subscribe(() => {
       console.log(`item with id: ${id} deleted`);
-    });
-    setTimeout(() => {
       this.getAllItems();
-    }, 100);
+    });
   }
 
 }
