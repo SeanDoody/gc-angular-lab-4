@@ -4,32 +4,32 @@ import { Item } from 'src/app/models/item';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CartApiService {
 
-  // local
-  // url: string = 'http://localhost:3000';
+    // local
+    // url: string = 'http://localhost:3000';
 
-  // heroku
-  url: string = 'https://gc-express-lab-2.herokuapp.com';
+    // heroku
+    url: string = 'https://gc-express-lab-2.herokuapp.com';
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  getAllItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(`${this.url}/cart-items`);
-  }
+    getAllItems(): Observable<Item[]> {
+        return this.http.get<Item[]>(`${this.url}/cart-items`);
+    }
 
-  addItem(item: Item): Observable<Item> {
-    return this.http.post<Item>(`${this.url}/cart-items`, item);
-  }
+    addItem(item: Item): Observable<Item> {
+        return this.http.post<Item>(`${this.url}/cart-items`, item);
+    }
 
-  editItem(id: number, item: Item): Observable<Item> {
-    return this.http.put<Item>(`${this.url}/cart-items/${id}`, item);
-  }
+    editItem(id: number, item: Item): Observable<Item> {
+        return this.http.put<Item>(`${this.url}/cart-items/${id}`, item);
+    }
 
-  deleteItem(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.url}/cart-items/${id}`);
-  }
+    deleteItem(id: number): Observable<any> {
+        return this.http.delete<any>(`${this.url}/cart-items/${id}`);
+    }
 
 }

@@ -17,35 +17,65 @@
         </td>
         <td>
             <data *ngIf="!isItemEditable(item.id)">{{ item.product }}</data>
-            <input *ngIf="isItemEditable(item.id)" [(ngModel)]="editedItem.product" type="text" id="product" name="product">
+            <input
+                *ngIf="isItemEditable(item.id)"
+                [(ngModel)]="editedItem.product"
+                type="text"
+                id="product"
+                name="product"
+            />
         </td>
         <td>
-            <data *ngIf="!isItemEditable(item.id)">{{ item.price | currency }}</data>
-            <input *ngIf="isItemEditable(item.id)" [(ngModel)]="editedItem.price" type="number" id="price" name="price">
+            <data *ngIf="!isItemEditable(item.id)">{{
+                item.price | currency
+            }}</data>
+            <input
+                *ngIf="isItemEditable(item.id)"
+                [(ngModel)]="editedItem.price"
+                type="number"
+                id="price"
+                name="price"
+            />
         </td>
         <td>
             <data *ngIf="!isItemEditable(item.id)">{{ item.quantity }}</data>
-            <input *ngIf="isItemEditable(item.id)" [(ngModel)]="editedItem.quantity" type="number" id="quantity" name="quantity">
+            <input
+                *ngIf="isItemEditable(item.id)"
+                [(ngModel)]="editedItem.quantity"
+                type="number"
+                id="quantity"
+                name="quantity"
+            />
         </td>
         <td>
-            <mat-icon *ngIf="!isItemEditable(item.id)" (click)="editItemStart(item)">edit</mat-icon>
-            <mat-icon *ngIf="isItemEditable(item.id)" (click)="editItemEnd()">close</mat-icon>
+            <mat-icon
+                *ngIf="!isItemEditable(item.id)"
+                (click)="editItemStart(item)"
+                >edit</mat-icon
+            >
+            <mat-icon *ngIf="isItemEditable(item.id)" (click)="editItemEnd()"
+                >close</mat-icon
+            >
         </td>
         <td>
             <mat-icon (click)="deleteItem(item.id)">delete</mat-icon>
         </td>
     </tr>
 </table>
-<form #newItemForm="ngForm" *ngIf="showForm" (submit)="addItem(newItemForm.value)">
+<form
+    #newItemForm="ngForm"
+    *ngIf="showForm"
+    (submit)="addItem(newItemForm.value)"
+>
     <div id="form-div">
         <h2>Enter Item Details</h2>
         <mat-icon (click)="showForm = false">close</mat-icon>
     </div>
     <label for="product">Product</label>
-    <input type="text" id="product" name="product" ngModel>
+    <input type="text" id="product" name="product" ngModel />
     <label for="price">Price</label>
-    <input type="number" id="price" name="price" ngModel>
+    <input type="number" id="price" name="price" ngModel />
     <label for="quantity">Quantity</label>
-    <input type="number" id="quantity" name="quantity" ngModel>
+    <input type="number" id="quantity" name="quantity" ngModel />
     <button>Submit</button>
 </form>

@@ -1,9 +1,9 @@
 header {
     width: 100%;
-    text-align: center; 
+    text-align: center;
     background-color: darkslategray;
     color: white;
-    padding: 0.5rem;  
+    padding: 0.5rem;
 }
 
 h1 {
@@ -23,7 +23,7 @@ button:hover {
 #add-button {
     width: 92%;
     margin-left: 4%;
-    margin-right: 4%; 
+    margin-right: 4%;
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 2rem;
@@ -32,7 +32,7 @@ button:hover {
 table {
     width: 95%;
     margin-left: 2.5%;
-    margin-right: 2.5%; 
+    margin-right: 2.5%;
     border-collapse: collapse;
 }
 
@@ -41,7 +41,7 @@ th {
 }
 
 tr {
-    border: solid 0.5rem white; 
+    border: solid 0.5rem white;
 }
 
 td {
