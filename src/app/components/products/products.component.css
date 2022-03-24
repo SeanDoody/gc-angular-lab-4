@@ -96,6 +96,7 @@ label {
 
 form input {
     font-size: 1.75rem;
+    padding-left: 0.3rem;
     border: none;
     border-bottom: solid 0.1rem black;
     margin-bottom: 0.5rem;
